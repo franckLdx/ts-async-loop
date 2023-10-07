@@ -2,14 +2,18 @@ import { MakeAsyncLoopOptions } from "./declarations";
 
 type InternalOptions = Required<MakeAsyncLoopOptions>
 
+export const defaultOptions: InternalOptions = {
+  waitingDuration: 100,
+  maxExecution: 1,
+} as const
+
 export const wait = (duration: number) => new Promise((resolve) => setTimeout(resolve, duration));
 
 export const makeAsyncLoop = <RETURN_TYPE>(
   callback: (...parameters: any[]) => Promise<RETURN_TYPE>,
   options?: MakeAsyncLoopOptions): (...parameters: any[]) => Promise<RETURN_TYPE[]> => {
   const actualOptions: InternalOptions = {
-    waitingDuration: 100,
-    maxExecution: 1,
+    ...defaultOptions,
     ...options
   }
 
