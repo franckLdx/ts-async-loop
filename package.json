@@ -1,10 +1,12 @@
 {
   "name": "ts-async-loop",
-  "version": "0.0.2-alpha",
+  "version": "0.0.3-alpha",
   "description": "asycnhrnous foo/map loop",
   "repository": "https://github.com/franckLdx/ts-async-loop.git",
   "author": "<franck.ledoux.pro@gmail.com>",
   "license": "MIT",
+  "exports": "./lib/index.js",
+  "main": "./lib/index.js",
   "module": "./lib/index.js",
   "bin": "./lib/index.js",
   "files": [
