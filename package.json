@@ -1,6 +1,6 @@
 {
   "name": "ts-async-loop",
-  "version": "0.0.0-alpha",
+  "version": "0.0.1-alpha",
   "description": "asycnhrnous foo/map loop",
   "repository": "https://github.com/franckLdx/ts-async-loop.git",
   "author": "<franck.ledoux.pro@gmail.com>",
