@@ -9,7 +9,7 @@ export default [
   {
     input,
     output: {
-      name: 'howLongUntilLunch',
+      name: pkg.name,
       file: pkg.browser,
       format: 'umd'
     },
