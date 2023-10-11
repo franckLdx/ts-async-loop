@@ -4,7 +4,6 @@ import typescript from 'rollup-plugin-typescript';
 import pkg from './package.json' assert { type: "json" };
 import { dts } from "rollup-plugin-dts";
 
-
 const input = 'src/asyncLoop.ts'
 
 export default [
@@ -27,8 +26,7 @@ export default [
       typescript()
     ],
     output: [
-      { file: pkg.main, format: 'cjs' },
-      { file: pkg.module, format: 'es' }
+      { file: pkg.main, format: 'es' }
     ]
   },
   {

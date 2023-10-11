@@ -6,10 +6,9 @@
   "author": "<franck.ledoux.pro@gmail.com>",
   "license": "MIT",
   "type": "module",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
-  "browser": "dist/index.umd.js",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "browser": "dist/index.umd.js",
   "files": [
     "index.js",
     "dist/**/*.js",
