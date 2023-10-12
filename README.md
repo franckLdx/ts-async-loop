@@ -1,4 +1,5 @@
 # ts-async-loop
+
 A mean to execute for/map loop asynchronously
 
 One can execute async actions one by one, or two by, ar three by three, etc...
@@ -21,3 +22,13 @@ results ends up to be an array: first item is the result of the first asyncFunc 
 
 If any execution failed, an error is thrown and not other execution is performed.
 
+
+## Known issues
+
+- Parameters are not typed
+
+- No means to control progression
+
+- In case of error no means to know which execution failed
+
+The two last issues will be addressed soon.
