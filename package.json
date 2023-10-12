@@ -40,5 +40,30 @@
     "watch": "tsc --watch",
     "build": "rollup -c",
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
-  }
+  },
+  "keywords": [
+    "typescript",
+    "javascript",
+    "for",
+    "while",
+    "loop",
+    "map",
+    "foreach",
+    "repeat",
+    "replay",
+    "node",
+    "nodejs",
+    "error",
+    "promise",
+    "async",
+    "await",
+    "asyncawait",
+    "trycatch",
+    "react",
+    "reactjs",
+    "angular",
+    "vue",
+    "svelte",
+    "deno"
+  ]
 }
