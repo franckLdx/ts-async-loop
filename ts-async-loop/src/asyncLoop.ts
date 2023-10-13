@@ -19,16 +19,14 @@ export const makeAsyncLoop = <RETURN_TYPE>(
 
   let activeCount = 0
 
-  const execute = async (currentParameters: any, index: number): Promise<RETURN_TYPE> => {
+  const execute = async (currentParameters: any): Promise<RETURN_TYPE> => {
     while (activeCount === actualOptions.maxExecution) {
       await wait(actualOptions.waitingDuration)
     }
     activeCount++
 
     const multiple = Array.isArray(currentParameters)
-    console.log(`--- START ${index}`)
     const result = multiple ? await callback(...currentParameters) : await callback(currentParameters)
-    console.log(`--- STOP ${index}`)
 
     activeCount--
     return result
