@@ -48,6 +48,9 @@ By default ts-async-lopp checks every 100ms if it can trigger a new execution. T
     
 ```
 
+---
+This package include esm, commonjs & umd distribution
+ 
 
 ---
 ###### Known issues

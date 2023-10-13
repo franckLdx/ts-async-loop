@@ -4,7 +4,7 @@ export interface AsyncLoopProgression {
   currentExecutionCount: number
 }
 
-type AsyncLoopProgressionCallback = (data: AsyncLoopProgression) => void
+export type AsyncLoopProgressionCallback = (data: AsyncLoopProgression) => void
 
 export interface MakeAsyncLoopOptions {
   waitingDuration?: number

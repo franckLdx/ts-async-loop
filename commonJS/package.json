@@ -4,6 +4,6 @@
   "license": "MIT",
   "devDependencies": {},
   "dependencies": {
-    "ts-async-loop": "1.0.1"
+    "ts-async-loop": "^1.0.2"
   }
 }

@@ -1,4 +1,4 @@
-import { MakeAsyncLoopOptions } from "./declarations";
+import { AsyncLoopProgressionCallback, MakeAsyncLoopOptions } from "./declarations";
 
 type InternalOptions = MakeAsyncLoopOptions & Required<Pick<MakeAsyncLoopOptions, "maxExecution" | "waitingDuration">>
 
@@ -19,27 +19,31 @@ export const makeAsyncLoop = <RETURN_TYPE>(
 
   let currentExecutionCount = 0
 
+  const onProgress = (index: number, params: any, callback?: AsyncLoopProgressionCallback) => {
+    if (!callback) {
+      return
+    }
+    callback({
+      currentExecutionCount,
+      index,
+      params
+    })
+  }
+
   const execute = async (currentParameters: any, index: number): Promise<RETURN_TYPE> => {
     while (currentExecutionCount === actualOptions.maxExecution) {
       await wait(actualOptions.waitingDuration)
     }
     currentExecutionCount++
 
-    actualOptions.onStart && actualOptions.onStart({
-      currentExecutionCount: currentExecutionCount,
-      index,
-      params: currentParameters
-    })
+    onProgress(index, currentParameters, actualOptions.onStart)
+
     const multiple = Array.isArray(currentParameters)
     const result = multiple ? await callback(...currentParameters) : await callback(currentParameters)
 
     currentExecutionCount--
 
-    actualOptions.onStop && actualOptions.onStop({
-      currentExecutionCount: currentExecutionCount,
-      index,
-      params: currentParameters
-    })
+    onProgress(index, currentParameters, actualOptions.onStop)
 
     return result
   }
