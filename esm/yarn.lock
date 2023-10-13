@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-ts-async-loop@1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/ts-async-loop/-/ts-async-loop-1.0.1.tgz#3337ab5830473deaadb233032ff057d900872e19"
-  integrity sha512-Qsdmaxn8wgO340zHh6atZCxsx1sLE9L2aGULkMvW7T+Y7UI75UOrdoiEdbpheh25ZbwOrLjZh4jUUYFRQRDA+Q==
+ts-async-loop@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/ts-async-loop/-/ts-async-loop-1.0.2.tgz#d660d2527f5ff6aef6bac61aa702aa632d305a54"
+  integrity sha512-1bxsfzTQ+bQTdNSQp7MKmZ4VxX252vsshR/LtqCSYrWeQBNg81T3hodObRkppG7lkpux8eKi6fc7C9YE4zqwpw==
