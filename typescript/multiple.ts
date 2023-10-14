@@ -1,9 +1,15 @@
-import { makeAsyncLoop } from 'ts-async-loop'
-import { asyncFunc, onStart, onStop } from './lib.js'
+import { MakeAsyncLoopOptions, makeAsyncLoop } from 'ts-async-loop'
+import { asyncFunc, onStart, onStop } from './lib'
+
+const options: MakeAsyncLoopOptions = {
+  maxExecution: 2,
+  onStart,
+  onStop
+}
 
 const asyncLoop = makeAsyncLoop(
   asyncFunc,
-  { maxExecution: 2, onStart, onStop }
+  options
 )
 
 asyncLoop([1], [2], [3], [4], [5]).then(console.log)
