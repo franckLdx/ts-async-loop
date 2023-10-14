@@ -5,6 +5,6 @@ exports.asyncFunc = async (p1) => {
   return `done ${p1}`
 }
 
-exports.onStart = (...param) => console.log(`Start: ${JSON.stringify(param)}`)
+exports.onStart = ({ index, params, currentExecutionCount }) => console.log(`Start execution ${index}, with params ${params} (current number of tasks: ${currentExecutionCount}).`)
 
-exports.onStop = (...param) => console.log(`Stop: ${JSON.stringify(param)}`)
+exports.onStop = ({ index, currentExecutionCount }) => console.log(`Execution ${index} is done(current number of tasks: ${currentExecutionCount}).`)
