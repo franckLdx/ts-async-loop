@@ -1,4 +1,4 @@
-import { AsyncLoopProgressionCallback, MakeAsyncLoopOptions } from "./declarations";
+import type { AsyncLoopProgressionCallback, MakeAsyncLoopOptions } from "./declarations";
 
 type InternalOptions = MakeAsyncLoopOptions & Required<Pick<MakeAsyncLoopOptions, "maxExecution" | "waitingDuration">>
 

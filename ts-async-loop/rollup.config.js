@@ -6,7 +6,7 @@ import terser from '@rollup/plugin-terser';
 
 import pkg from './package.json' assert { type: "json" };
 
-const input = 'src/asyncLoop.ts'
+const input = 'src/index.ts'
 
 export default [
   {
