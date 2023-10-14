@@ -1,6 +1,8 @@
-import { makeAsyncLoop, wait } from 'ts-async-loop'
-import { asyncFunc } from './lib.mjs'
+import { makeAsyncLoop } from 'ts-async-loop'
+import { asyncFunc, onStart, onStop } from './lib.mjs'
 
-makeAsyncLoop(
-  asyncFunc
-)([1], [2], [3], [4], [5]).then(console.log)
+const asyncLoop = makeAsyncLoop(
+  asyncFunc, { onStart, onStop }
+)
+
+asyncLoop([1], [2], [3], [4], [5]).then(console.log)
