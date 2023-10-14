@@ -6,3 +6,8 @@ ts-async-loop@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/ts-async-loop/-/ts-async-loop-1.0.2.tgz#d660d2527f5ff6aef6bac61aa702aa632d305a54"
   integrity sha512-1bxsfzTQ+bQTdNSQp7MKmZ4VxX252vsshR/LtqCSYrWeQBNg81T3hodObRkppG7lkpux8eKi6fc7C9YE4zqwpw==
+
+ts-retry@^4.2.3:
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/ts-retry/-/ts-retry-4.2.3.tgz#20f8b234d2d047d317096eb209905401b11873bf"
+  integrity sha512-pQAIQl6ga2MgfQ+rcO++P+e5oD+6Kuomv99PpeHqZyjAze98Fc4+oduoitD8UXtOOcTgq4Or7nBQriGLFfosow==
