@@ -1,4 +1,4 @@
-import { wait } from 'ts-async-loop'
+import { wait } from 'ts-retry'
 
 export const asyncFunc = async (p1: number) => {
   console.log(`Start ${p1}`)

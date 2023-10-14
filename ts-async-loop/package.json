@@ -1,6 +1,6 @@
 {
   "name": "ts-async-loop",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "asycnhrnous foo/map loop",
   "repository": "https://github.com/franckLdx/ts-async-loop.git",
   "author": "<franck.ledoux.pro@gmail.com>",
@@ -24,7 +24,7 @@
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.4",
     "@types/jest": "^29.5.5",
-    "@types/node": "^20.8.0",
+    "@types/node": "^20.8.5",
     "jest": "^29.7.0",
     "rimraf": "^5.0.5",
     "rollup": "^4.0.2",

@@ -42,15 +42,33 @@ You can set any number you want to maxExecution but don't forget that this lib r
 By default ts-async-lopp checks every 100ms if it can trigger a new execution. To reduce the gap between execution yo can set your own value using waitingDuration:
 
 ```javascript
-    const loop = makeAsyncLoop(asyncFunc, { waitingDuration:10 }) // checks every 10ms
+    const loop = makeAsyncLoop(
+      asyncFunc, 
+      { waitingDuration: 10 } // checks every 10ms
+    ) 
     
-    const loop = makeAsyncLoop(asyncFunc, {maxExecution: 2, waitingDuration: 200 }) // checks every 2000ms
+    const loop = makeAsyncLoop(
+      asyncFunc, 
+      {
+        maxExecution: 2, 
+        waitingDuration: 200 // checks every 2000ms
+      }
+    ) 
     
 ```
 
 ---
-This package include esm, commonjs & umd distribution
- 
+This package include esm, commonjs & umd distribution, along with a d.td declarations file
+
+---
+types:
+
+```javascript
+interface MakeAsyncLoopOptions {
+  maxExecution?: number; // Maximum number of simultanous executions
+  waitingDuration?: number; // Check every <waitingDuration> ms is a new exectuoin can be launched   
+}
+```
 
 ---
 ###### Known issues

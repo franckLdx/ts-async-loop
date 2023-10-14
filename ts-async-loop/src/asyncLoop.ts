@@ -2,12 +2,12 @@ import type { AsyncLoopProgressionCallback, MakeAsyncLoopOptions } from "./decla
 
 type InternalOptions = MakeAsyncLoopOptions & Required<Pick<MakeAsyncLoopOptions, "maxExecution" | "waitingDuration">>
 
-export const defaultOptions: InternalOptions = {
+const defaultOptions: InternalOptions = {
   waitingDuration: 100,
   maxExecution: 1,
 } as const
 
-export const wait = (duration: number) => new Promise((resolve) => setTimeout(resolve, duration));
+const wait = (duration: number) => new Promise((resolve) => setTimeout(resolve, duration));
 
 export const makeAsyncLoop = <RETURN_TYPE>(
   callback: (...parameters: any[]) => Promise<RETURN_TYPE>,
