@@ -1,13 +1,14 @@
-import { MakeAsyncLoopOptions } from "./declarations";
+import type { MakeAsyncLoopOptions } from "./declarations";
+export type { MakeAsyncLoopOptions } from "./declarations";
 
-type InternalOptions = Required<MakeAsyncLoopOptions>
+type InternalOptions = MakeAsyncLoopOptions & Required<Pick<MakeAsyncLoopOptions, "maxExecution" | "waitingDuration">>
 
-export const defaultOptions: InternalOptions = {
+const defaultOptions: InternalOptions = {
   waitingDuration: 100,
   maxExecution: 1,
 } as const
 
-export const wait = (duration: number) => new Promise((resolve) => setTimeout(resolve, duration));
+const wait = (duration: number) => new Promise((resolve) => setTimeout(resolve, duration));
 
 export const makeAsyncLoop = <RETURN_TYPE>(
   callback: (...parameters: any[]) => Promise<RETURN_TYPE>,
@@ -17,18 +18,19 @@ export const makeAsyncLoop = <RETURN_TYPE>(
     ...options
   }
 
-  let activeCount = 0
+  let currentExecutionCount = 0
 
   const execute = async (currentParameters: any): Promise<RETURN_TYPE> => {
-    while (activeCount === actualOptions.maxExecution) {
+    while (currentExecutionCount === actualOptions.maxExecution) {
       await wait(actualOptions.waitingDuration)
     }
-    activeCount++
+    currentExecutionCount++
 
     const multiple = Array.isArray(currentParameters)
     const result = multiple ? await callback(...currentParameters) : await callback(currentParameters)
 
-    activeCount--
+    currentExecutionCount--
+
     return result
   }
 

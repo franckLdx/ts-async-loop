@@ -1,10 +1,9 @@
-const { makeAsyncLoop, wait } = require('ts-async-loop')
+const { makeAsyncLoop } = require('ts-async-loop')
+const { asyncFunc, onStart, onStop } = require('./lib')
 
-const asyncFunc = async (p1) => {
-  await wait(Math.floor(Math.random() * 10000) + 10000)
-  return `done ${p1}`
-}
+const asyncLoop = makeAsyncLoop(
+  asyncFunc,
+  { onStart, onStop }
+)
 
-makeAsyncLoop(
-  asyncFunc
-)([1], [2], [3], [4], [5]).then(console.log)
+asyncLoop([1], [2], [3], [4], [5]).then(console.log)
