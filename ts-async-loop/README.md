@@ -17,6 +17,14 @@ To call **asyncFunc** once at a time:
       ['C', 3],
     )
 ```
+or, if your parameters are already in an array:
+
+```javascript
+    const loop = makeAsyncLoop(asyncFunc)
+    
+    const results = await loop(...parametersArray)
+```
+
 First asyncFunc is called given 'A' and 1 as parameters. After the first execution, it is called using 'b' and 2 parameters, and so on.
 results ends up to be an array: first item is the result of the first asyncFunc execution, second items it the result of the second call, and so on.
 
@@ -37,7 +45,7 @@ asyncFunc('A', 1) and asyncFunc('B', 2) are executed first. One one of them is t
 
 Whatever end of executin is, first item od resutls array is always the result of the first asyncFunc execution, second items is always it the result of the second call, and so on.
 
-You can set any number you want to maxExecution but don't forget that this lib runs in the vent-loop: the higer maxExecution the more event-loOp has work to do.
+You can set any number you want to maxExecution but don't forget that this lib runs in the vent-loop: the higer maxExecution the more event-loop has work to do.
 
 By default ts-async-lopp checks every 100ms if it can trigger a new execution. To reduce the gap between execution yo can set your own value using waitingDuration:
 
