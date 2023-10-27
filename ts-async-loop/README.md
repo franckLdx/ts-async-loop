@@ -77,7 +77,7 @@ Parameters:
   currentExecutionCount: execution curently running (including the one for which onStart is calling)
 ```
 
-When provided, OnStop is called each time an execution is terminated.
+When provided, onStop is called each time an execution is terminated.
 
 Parameters:
 
@@ -109,12 +109,14 @@ const asyncLoop = makeAsyncLoop(
 This package include esm, commonjs & umd distribution, along with a d.td declarations file
 
 ---
-types:
+Options:
 
 ```javascript
 interface MakeAsyncLoopOptions {
-  maxExecution?: number; // Maximum number of simultanous executions
-  waitingDuration?: number; // Check every <waitingDuration> ms is a new exectuoin can be launched   
+  maxExecution?: number; Maximum number of simultanous executions
+  waitingDuration?: number; Check every <waitingDuration> ms is a new exectuoin can be launched
+  onStart?: a callback triggrered when an execution starts, 
+  onStop?: a callback triggrered when an execution stops, 
 }
 ```
 
