@@ -115,8 +115,6 @@ interface MakeAsyncLoopOptions {
 
 - Parameters are not typed
 
-- No means to control progression
-
 - In case of error no means to know which execution failed
 
 The two last issues will be addressed soon.

@@ -1,11 +1,14 @@
+import { AsyncLoopProgressionOnStart, AsyncLoopProgressionOnStop } from 'ts-async-loop'
 import { wait } from 'ts-retry'
-import type { AsyncLoopProgressionCallback } from 'ts-async-loop'
 
 export const asyncFunc = async (p1: number) => {
   await wait(Math.floor(Math.random() * 10000) + 500)
   return `done ${p1}`
 }
 
-export const onStart: AsyncLoopProgressionCallback = params => console.log(`Start: ${JSON.stringify(params)}`)
+export const onStart: AsyncLoopProgressionOnStart = ({ index, params, currentExecutionCount }) =>
+  console.log(`Start execution ${index}, with params ${params} (current number of tasks: ${currentExecutionCount}).`)
 
-export const onStop: AsyncLoopProgressionCallback = params => console.log(`Stop: ${JSON.stringify(params)}`)
+export const onStop: AsyncLoopProgressionOnStop<number> = ({ index, currentExecutionCount, result }) =>
+  console.log(`Execution ${index} is done with the result: ${result} (current number of tasks: ${currentExecutionCount}).`)
+
