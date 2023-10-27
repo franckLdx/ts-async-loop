@@ -1,7 +1,7 @@
 import { MakeAsyncLoopOptions, makeAsyncLoop } from 'ts-async-loop'
 import { asyncFunc, onStart, onStop } from './lib'
 
-const options: MakeAsyncLoopOptions = {
+const options: MakeAsyncLoopOptions<string> = {
   maxExecution: 2,
   onStart,
   onStop

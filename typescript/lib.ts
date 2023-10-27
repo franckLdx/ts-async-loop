@@ -9,6 +9,6 @@ export const asyncFunc = async (p1: number) => {
 export const onStart: AsyncLoopProgressionOnStart = ({ index, params, currentExecutionCount }) =>
   console.log(`Start execution ${index}, with params ${params} (current number of tasks: ${currentExecutionCount}).`)
 
-export const onStop: AsyncLoopProgressionOnStop<number> = ({ index, currentExecutionCount, result }) =>
+export const onStop: AsyncLoopProgressionOnStop<string> = ({ index, currentExecutionCount, result }) =>
   console.log(`Execution ${index} is done with the result: ${result} (current number of tasks: ${currentExecutionCount}).`)
 
