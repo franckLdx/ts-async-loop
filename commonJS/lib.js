@@ -1,9 +1,15 @@
 const { wait } = require('ts-retry')
 
-exports.asyncFunc = async (p1) => {
+exports.asyncFuncOneParam = async (p1) => {
   await wait(Math.floor(Math.random() * 10000) + 1000)
   return `done ${p1}`
 }
+
+exports.asyncFuncTwoParams = async (p1, p2) => {
+  await wait(Math.floor(Math.random() * 10000) + 1000)
+  return `done ${p1} whith ${p2}`
+}
+
 
 exports.onStart = ({ index, params, currentExecutionCount }) =>
   console.log(`Start execution ${index}, with params ${params} (current number of tasks: ${currentExecutionCount}).`)

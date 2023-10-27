@@ -1,14 +1,10 @@
 const { makeAsyncLoop } = require('ts-async-loop')
-const { asyncFunc, onStart, onStop } = require('./lib')
+const { asyncFuncTwoParams, onStart, onStop } = require('./lib')
 
 
 const asyncLoop = makeAsyncLoop(
-  asyncFunc,
-  {
-    maxExecution: 2,
-    onStart,
-    onStop
-  }
+  asyncFuncTwoParams,
+  { maxExecution: 2, onStart, onStop }
 )
 
-asyncLoop([1], [2], [3], [4], [5]).then(console.log)
+asyncLoop([1, 2], [2, 'foo'], [3, 'bar'], [4, '4'], [5, 42]).then(console.log)

@@ -1,8 +1,8 @@
 const { makeAsyncLoop } = require('ts-async-loop')
-const { asyncFunc, onStart, onStop } = require('./lib')
+const { asyncFuncOneParam, onStart, onStop } = require('./lib')
 
 const asyncLoop = makeAsyncLoop(
-  asyncFunc,
+  asyncFuncOneParam,
   { onStart, onStop }
 )
 
