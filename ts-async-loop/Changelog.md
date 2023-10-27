@@ -1,3 +1,6 @@
+## 1.1.0
+Add onStart & onStop callback
+
 ## 1.0.3
 Fix types export: MakeAsyncLoopOptions is now exported
 

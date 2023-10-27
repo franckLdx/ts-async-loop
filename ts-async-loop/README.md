@@ -41,7 +41,7 @@ To call **asyncFunc** two at a time:
       ['C', 3]
     )
 ```
-asyncFunc('A', 1) and asyncFunc('B', 2) are executed first. One one of them is terminated, asyncFunc('C', 3) is called
+asyncFunc('A', 1) and asyncFunc('B', 2) are executed first. One one of them is terminated, asyncFunc('C', 3) is called.
 
 Whatever end of executin is, first item od resutls array is always the result of the first asyncFunc execution, second items is always it the result of the second call, and so on.
 
@@ -64,6 +64,46 @@ By default ts-async-lopp checks every 100ms if it can trigger a new execution. T
     ) 
     
 ```
+---
+
+###### Follow progression
+Two callbacks are avaialable: onStart and onStop.
+When provided, onStart is called each time an execution is launched.
+
+Parameters:
+```javascript
+  index: execution parameters index
+  params: parameters of the execution
+  currentExecutionCount: execution curently running (including the one for which onStart is calling)
+```
+
+When provided, OnStop is called each time an execution is terminated.
+
+Parameters:
+
+```javascript
+  index: execution parameters index
+  params: parameters of the execution
+  currentExecutionCount: execution curently running (the one that just stop in not included)
+```
+They are parts of the makeAsyncLoop's options:
+
+```javascript
+const onStart = ({ index, params, currentExecutionCount }) => console.log(`Start execution ${index}, with params ${params} (current number of tasks: ${currentExecutionCount}).`)
+
+const onStop = ({ index, currentExecutionCount }) => console.log(`Execution ${index} is done(current number of tasks: ${currentExecutionCount}).`)
+
+const asyncLoop = makeAsyncLoop(
+  asyncFunc,
+  {
+    maxExecution: 2,
+    onStart,
+    onStop
+  }
+)
+
+```
+
 
 ---
 This package include esm, commonjs & umd distribution, along with a d.td declarations file
@@ -82,8 +122,6 @@ interface MakeAsyncLoopOptions {
 ###### Known issues
 
 - Parameters are not typed
-
-- No means to control progression
 
 - In case of error no means to know which execution failed
 
