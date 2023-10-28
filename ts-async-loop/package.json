@@ -65,6 +65,7 @@
     "angular",
     "vue",
     "svelte",
-    "deno"
+    "deno",
+    "async-loop"
   ]
 }
