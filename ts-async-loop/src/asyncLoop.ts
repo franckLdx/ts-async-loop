@@ -29,9 +29,10 @@ export const makeAsyncLoop = <RETURN_TYPE>(
     currentExecutionCount++
 
     internalOptions.onStart?.({
-      currentExecutionCount,
       index,
-      params: currentParameters
+      params: currentParameters,
+      currentExecutionCount,
+      totalExecutionCount: currentParameters.length
     })
 
     const multiple = Array.isArray(currentParameters)
@@ -45,9 +46,10 @@ export const makeAsyncLoop = <RETURN_TYPE>(
     currentExecutionCount--
 
     internalOptions.onStop?.({
-      currentExecutionCount,
       index,
       params: currentParameters,
+      currentExecutionCount,
+      totalExecutionCount: currentParameters.length,
       result
     })
 
