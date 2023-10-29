@@ -17,6 +17,7 @@ To call **asyncFunc** once at a time:
       ['C', 3],
     )
 ```
+
 or, if your parameters are already in an array:
 
 ```javascript
@@ -41,6 +42,7 @@ To call **asyncFunc** two at a time:
       ['C', 3]
     )
 ```
+
 asyncFunc('A', 1) and asyncFunc('B', 2) are executed first. One one of them is terminated, asyncFunc('C', 3) is called.
 
 Whatever end of executin is, first item od resutls array is always the result of the first asyncFunc execution, second items is always it the result of the second call, and so on.
@@ -64,13 +66,14 @@ By default ts-async-lopp checks every 100ms if it can trigger a new execution. T
     ) 
     
 ```
----
 
-###### Follow progression
+## Follow progression
+
 Two callbacks are avaialable: onStart and onStop.
 When provided, onStart is called each time an execution is launched.
 
 Parameters:
+
 ```javascript
   index: execution parameters index
   params: parameters of the execution
@@ -86,6 +89,7 @@ Parameters:
   params: parameters of the execution
   currentExecutionCount: execution curently running (the one that just stop in not included)
 ```
+
 They are parts of the makeAsyncLoop's options:
 
 ```javascript
@@ -104,7 +108,6 @@ const asyncLoop = makeAsyncLoop(
 
 ```
 
-
 ---
 This package include esm, commonjs & umd distribution, along with a d.td declarations file
 
@@ -120,8 +123,7 @@ interface MakeAsyncLoopOptions {
 }
 ```
 
----
-###### Known issues
+### Known issues
 
 - Parameters are not typed
 
