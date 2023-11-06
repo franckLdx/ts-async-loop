@@ -93,7 +93,8 @@ They are parts of the makeAsyncLoop's options:
 ```javascript
 const onStart = ({ index, params, currentExecutionCount }) => console.log(`Start execution ${index}, with params ${params} (current number of tasks: ${currentExecutionCount}).`)
 
-const onStop = ({ index, currentExecutionCount }) => console.log(`Execution ${index} is done(current number of tasks: ${currentExecutionCount}).`)
+const onStop = ({ index,
+ currentExecutionCount }) => console.log(`Execution ${index} is done(current number of tasks: ${currentExecutionCount}).`)
 
 const asyncLoop = makeAsyncLoop(
   asyncFunc,
@@ -107,6 +108,7 @@ const asyncLoop = makeAsyncLoop(
 ```
 
 ## Error
+
 If any execution failed, an error is thrown and not other execution is performed.
 
 MakeAsyncLopp throw a specific error: AsynLoopError, which have the following properties:
