@@ -29,8 +29,6 @@ or, if your parameters are already in an array:
 First asyncFunc is called given 'A' and 1 as parameters. After the first execution, it is called using 'b' and 2 parameters, and so on.
 results ends up to be an array: first item is the result of the first asyncFunc execution, second items it the result of the second call, and so on.
 
-If any execution failed, an error is thrown and not other execution is performed.
-
 To call **asyncFunc** two at a time:
 
  ```javascript
@@ -106,6 +104,18 @@ const asyncLoop = makeAsyncLoop(
   }
 )
 
+```
+
+## Error
+If any execution failed, an error is thrown and not other execution is performed.
+
+MakeAsyncLopp throw a specific error: AsynLoopError, which have the following properties:
+
+```javascript
+  error the error thrown by an execution
+  index index of the erroneous execution
+  params parameters of the erroneous execution
+  currentExecutionCount number of exectuion when the error has been thrown
 ```
 
 ---

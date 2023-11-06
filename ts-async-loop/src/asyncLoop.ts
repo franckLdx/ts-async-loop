@@ -1,4 +1,5 @@
 import type { MakeAsyncLoopOptions } from "./declarations";
+import { AsynLoopError } from "./error";
 
 type InternalOptions<RETURN_TYPE> =
   MakeAsyncLoopOptions<RETURN_TYPE> &
@@ -21,7 +22,7 @@ export const makeAsyncLoop = <RETURN_TYPE>(
 
   let currentExecutionCount = 0
 
-  const execute = async (currentParameters: any, index: number): Promise<RETURN_TYPE> => {
+  const executeWhenverPossible = async (currentParameters: any, index: number): Promise<RETURN_TYPE> => {
     while (currentExecutionCount === internalOptions.maxExecution) {
       await wait(internalOptions.waitingDuration)
     }
@@ -34,7 +35,12 @@ export const makeAsyncLoop = <RETURN_TYPE>(
     })
 
     const multiple = Array.isArray(currentParameters)
-    const result = multiple ? await callback(...currentParameters) : await callback(currentParameters)
+    let result;
+    try {
+      result = multiple ? await callback(...currentParameters) : await callback(currentParameters)
+    } catch (error) {
+      throw new AsynLoopError(error, index, currentParameters, currentExecutionCount)
+    }
 
     currentExecutionCount--
 
@@ -48,5 +54,5 @@ export const makeAsyncLoop = <RETURN_TYPE>(
     return result
   }
 
-  return async (...parameters: any[]) => await Promise.all(parameters.map(execute))
+  return async (...parameters: any[]) => await Promise.all(parameters.map(executeWhenverPossible))
 }

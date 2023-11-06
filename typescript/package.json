@@ -13,6 +13,7 @@
   },
   "scripts": {
     "single": "ts-node single",
-    "multiple": "ts-node multiple"
+    "multiple": "ts-node multiple",
+    "error": "ts-node error"
   }
 }
