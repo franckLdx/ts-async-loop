@@ -93,7 +93,8 @@ They are parts of the makeAsyncLoop's options:
 ```javascript
 const onStart = ({ index, params, currentExecutionCount }) => console.log(`Start execution ${index}, with params ${params} (current number of tasks: ${currentExecutionCount}).`)
 
-const onStop = ({ index, currentExecutionCount }) => console.log(`Execution ${index} is done(current number of tasks: ${currentExecutionCount}).`)
+const onStop = ({ index,
+ currentExecutionCount }) => console.log(`Execution ${index} is done(current number of tasks: ${currentExecutionCount}).`)
 
 const asyncLoop = makeAsyncLoop(
   asyncFunc,
@@ -107,15 +108,29 @@ const asyncLoop = makeAsyncLoop(
 ```
 
 ## Error
+
 If any execution failed, an error is thrown and not other execution is performed.
 
-MakeAsyncLopp throw a specific error: AsynLoopError, which have the following properties:
+MakeAsyncLopp throw a specific error: isAsynLoopError, which have the following properties:
 
 ```javascript
   error the error thrown by an execution
   index index of the erroneous execution
   params parameters of the erroneous execution
   currentExecutionCount number of exectuion when the error has been thrown
+```
+
+For typescript user, a **isAsynLoopError** function allow to cast an error to an isAsynLoopError:
+
+```javascript
+} catch (error) {
+  if (isAsynLoopError(error)) {
+    console.error(`Error from Async loop: \n\tmessage:${error.error} \n\tname:${error.name} \n\tcurrentExecutionCount${error.currentExecutionCount} \n\tindex${error.index} \n\tparams${error.params}`)
+    console.error(error.error.stack)
+  } else {
+    throw error
+  }
+}
 ```
 
 ---
@@ -136,7 +151,3 @@ interface MakeAsyncLoopOptions {
 ### Known issues
 
 - Parameters are not typed
-
-- In case of error no means to know which execution failed
-
-The two last issues will be addressed soon.
