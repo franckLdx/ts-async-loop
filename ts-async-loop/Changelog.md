@@ -1,6 +1,10 @@
+## 1.3.0
+Extra info in callback for better follow up/
+
+
 ## 1.2.0
 
-Add AsynLoopError and 
+Add AsynLoopError and
 
 ## 1.1.1
 

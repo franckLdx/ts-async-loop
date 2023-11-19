@@ -86,6 +86,7 @@ Parameters:
   index: execution parameters index
   params: parameters of the execution
   currentExecutionCount: execution curently running (the one that just stop in not included)
+  totalExecutionCount: total numbers of execution
 ```
 
 They are parts of the makeAsyncLoop's options:
@@ -118,6 +119,7 @@ MakeAsyncLopp throw a specific error: isAsynLoopError, which have the following 
   index index of the erroneous execution
   params parameters of the erroneous execution
   currentExecutionCount number of exectuion when the error has been thrown
+  totalExecutionCount: total number of executions
 ```
 
 For typescript user, a **isAsynLoopError** function allow to cast an error to an isAsynLoopError:

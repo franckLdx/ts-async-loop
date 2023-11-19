@@ -40,7 +40,7 @@ export const makeAsyncLoop = <RETURN_TYPE>(
     try {
       result = multiple ? await callback(...currentParameters) : await callback(currentParameters)
     } catch (error) {
-      throw new AsynLoopError(error, index, currentParameters, currentExecutionCount)
+      throw new AsynLoopError(error, index, currentParameters, currentExecutionCount, currentParameters.length)
     }
 
     currentExecutionCount--
