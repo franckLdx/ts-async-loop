@@ -1,5 +1,6 @@
 export interface AsyncLoopProgression {
   index: number
+  totalExecutionCount: number
   params: any
   currentExecutionCount: number
 }
